@@ -38,8 +38,32 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ichoose.apps.IchooseConfig',
-    'registration.apps.RegistrationConfig'
+    'registration.apps.RegistrationConfig',
+    'social_django',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1098294132267-7igddfho82ldmf271rr2duc4tom277q6.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'mZ89eXlN5wTfBqqiw4ozNNL7'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '184350956171545'
+SOCIAL_AUTH_FACEBOOK_SECRET = '4f187d2c1b927ac0b7d8ceeb2da79793'
+
+SOCIAL_AUTH_TWITTER_KEY = 'yzSJx9h2b9t93h9kKBqa4zDsG'
+SOCIAL_AUTH_TWITTER_SECRET = 'N5ttuX7jPgclPwEuYhgf8EHAJTpzaz7JTn4vGl8yLkVBnCg02u'
+
+LOGIN_URL = '/auth/login/google-oauth2/'
+
+LOGIN_REDIRECT_URL = 'registration:home'
+LOGOUT_REDIRECT_URL = 'registration:logout'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,3 +149,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'registration.User'
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'static').replace('\\','/'),
+)
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_HOST_USER = 'aselib123@gmail.com'
+EMAIL_HOST_PASSWORD = 'Project@12'
+EMAIL_PORT = 587

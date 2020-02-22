@@ -7,7 +7,7 @@ class User(AbstractUser):
     address = models.TextField()
     bank_details=models.TextField()
 
-    def __str__(self): 
+    email = models.EmailField(max_length=254, unique=True)
+    def __str__(self):
 
         return self.username
-
