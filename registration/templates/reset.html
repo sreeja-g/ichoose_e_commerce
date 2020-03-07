@@ -1,0 +1,291 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    <script>
+	grecaptcha.ready(function() {
+		grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'});
+	});
+	</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IChoose Shop - Login</title>
+  <link rel="icon" type="image/png" href="{% static 'login/images/icons/favicon.ico' %}"/>
+	<link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/../../ichoose/static/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/themify-icons/../../ichoose/static/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/linericon/../../ichoose/static/css/linericon.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/../../ichoose/static/css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/../../ichoose/static/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/nouislider/nouislider.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'login/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+
+
+  <link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/daterangepicker/daterangepicker.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+
+
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .capbox {
+	background-color:white;
+	border: blue 72 0px solid;
+	border-width: 0px 12px 0px 0px;
+	display: inline-block;
+	*display: inline; zoom: 1; /* FOR IE7-8 */
+	padding: 8px 40px 8px 8px;
+	}
+
+.capbox-inner {
+	font: bold 11px arial, sans-serif;
+	color: #000000;
+	/* background-color: rgb(205, 205, 243); */
+	margin: 5px auto 0px auto;
+	padding: 3px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaDiv {
+	font: bold 17px verdana, arial, sans-serif;
+	font-style: italic;
+	color: #000000;
+	background-color: #FFFFFF;
+	padding: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	}
+
+#CaptchaInput { margin: 1px 0px 1px 0px; width: 135px; }
+
+
+    </style>
+</head>
+<body>
+{#	<!--================ Start Header Menu Area =================-->#}
+{#	<header class="header_area">#}
+{#    <div class="main_menu">#}
+{#      <nav class="navbar navbar-expand-lg navbar-light">#}
+{#        <div class="container">#}
+{#          <a class="navbar-brand logo_h" href="index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>#}
+{#          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"#}
+{#            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+{#            <span class="icon-bar"></span>#}
+{#            <span class="icon-bar"></span>#}
+{#            <span class="icon-bar"></span>#}
+{#          </button>#}
+{#          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">#}
+{#            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">#}
+{#              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>#}
+{#              <li class="nav-item submenu dropdown">#}
+{#                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"#}
+{#                  aria-expanded="false">Shop</a>#}
+{#                <ul class="dropdown-menu">#}
+{#                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>#}
+{#                  <li class="nav-item"><a class="nav-link" href="single-product.html">Blog Details</a></li>#}
+{#                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>#}
+{#                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>#}
+{#                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>#}
+{#                </ul>#}
+{#							</li>#}
+{#              <li class="nav-item submenu dropdown">#}
+{#                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"#}
+{#                  aria-expanded="false">Blog</a>#}
+{#                <ul class="dropdown-menu">#}
+{#                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>#}
+{#                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>#}
+{#                </ul>#}
+{#							</li>#}
+{#							<li class="nav-item active submenu dropdown">#}
+{#                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"#}
+{#                  aria-expanded="false">Pages</a>#}
+{#                <ul class="dropdown-menu">#}
+{#                  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>#}
+{#                  <li class="nav-item"><a class="nav-link" href="signup.html">Register</a></li>#}
+{#                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>#}
+{#                </ul>#}
+{#              </li>#}
+{#              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>#}
+{#            </ul>#}
+{##}
+{#            <ul class="nav-shop">#}
+{#              <li class="nav-item"><button><i class="ti-search"></i></button></li>#}
+{#              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>#}
+{#              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>#}
+{#            </ul>#}
+{#          </div>#}
+{#        </div>#}
+{#      </nav>#}
+{#    </div>#}
+{#  </header>#}
+	<!--================ End Header Menu Area =================-->
+
+  <!-- ================ start banner area ================= -->
+
+	<!-- ================ end banner area ================= -->
+
+  <!--================Login Box Area =================-->
+
+  
+
+	 <section class="login_box_area section-margin" style="margin-top: 0px;margin-bottom: 0px">
+		
+			
+				<div class="container-login100" style="background-color: rgb(211, 211, 238);max-height: fit-content;">
+					
+					
+
+	<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54" style="background-color: rgb(255, 255, 255);">
+		<form class="login100-form validate-form" method="POST" id="contactForm" action="{% url 'registration:reset_password' %}" style="max-height: 750px;">
+			{% csrf_token %}
+			<span class="login100-form-title p-b-49">
+				Reset Password
+			</span>
+
+			<div class="wrap-input100 validate-input m-b-23" style="border: 0px solid">
+				
+				{% if messages %}
+
+{% for message in messages %}
+<div class="alert alert-danger">
+<strong>Danger!</strong> {{ message }}
+</div>
+{#    <h6  style="color: red;text-align: center" class="{{ message.tags }}">{{ message }}</h6>#}
+{% endfor %}
+
+{% endif %}
+</div>
+			
+
+			<div class="wrap-input100 validate-input" data-validate="Password is required" >
+				<span class="label-input100">Password</span>
+				<input class="input100" type="password" id="password" name="password" placeholder="Type your password">
+				<span class="focus-input100" data-symbol="&#xf190;"></span>
+			</div>
+            
+            <div class="wrap-input100 validate-input" data-validate="Password is required" >
+				<span class="label-input100">Conform Password</span>
+				<input class="input100" type="password" id="password" name="pass2" placeholder="Type your password">
+				<span class="focus-input100" data-symbol="&#xf190;"></span>
+			</div>
+			
+			
+			<br>
+			<div class="container-login100-form-btn">
+				<div class="wrap-login100-form-btn">
+					<div class="login100-form-bgbtn"></div>
+					<button class="login100-form-btn">
+						RESET PASSWORD
+					</button>
+				</div>
+			</div>
+
+			
+			<br>
+			
+
+
+
+		
+		</form>
+	</div>
+</div>
+				
+						         
+	</section> 
+	<!--================End Login Box Area =================-->
+
+{##}
+{##}
+{#  <!--================ Start footer Area  =================-->#}
+{#	<footer>#}
+{#		<div class="footer-area footer-only">#}
+{#			<div class="container">#}
+{#				<div class="row section_gap">#}
+{#					<div class="col-lg-3 col-md-6 col-sm-6">#}
+{#						<div class="single-footer-widget tp_widgets ">#}
+{#							<h4 class="footer_title large_title">Our Mission</h4>#}
+{#							<p>#}
+{#								So seed seed green that winged cattle in. Gathering thing made fly you're no#}
+{#								divided deep moved us lan Gathering thing us land years living.#}
+{#							</p>#}
+{#							<p>#}
+{#								So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved#}
+{#							</p>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">#}
+{#						<div class="single-footer-widget tp_widgets">#}
+{#							<h4 class="footer_title">Quick Links</h4>#}
+{#							<ul class="list">#}
+{#								<li><a href="#">Home</a></li>#}
+{#								<li><a href="#">Shop</a></li>#}
+{#								<li><a href="#">Blog</a></li>#}
+{#								<li><a href="#">Product</a></li>#}
+{#								<li><a href="#">Brand</a></li>#}
+{#								<li><a href="#">Contact</a></li>#}
+{#							</ul>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-lg-2 col-md-6 col-sm-6">#}
+{#						<div class="single-footer-widget instafeed">#}
+{#							<h4 class="footer_title">Gallery</h4>#}
+{#							<ul class="list instafeed d-flex flex-wrap">#}
+{#								<li><img src="{% static 'img/gallery/r1.jpg' %}" alt=""></li>#}
+{#								<li><img src="{% static 'img/gallery/r2.jpg' %}" alt=""></li>#}
+{#								<li><img src="{% static 'img/gallery/r3.jpg' %}" alt=""></li>#}
+{#								<li><img src="{% static 'img/gallery/r5.jpg' %}" alt=""></li>#}
+{#								<li><img src="{% static 'img/gallery/r7.jpg' %}" alt=""></li>#}
+{#								<li><img src="{% static 'img/gallery/r8.jpg' %}" alt=""></li>#}
+{#							</ul>#}
+{#						</div>#}
+{#					</div>#}
+{#					#}
+{##}
+{#		#}
+{#	</footer>#}
+{#	<!--================ End footer Area  =================-->#}
+
+
+
+  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendors/skrollr.min.js' %}"></script>
+  <script src="{% static 'vendors/owl-carousel/../../ichoose/static/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'vendors/nice-select/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'vendors/jquery.ajaxchimp.min.js' %}"></script>
+  <script src="{% static 'vendors/mail-script.js' %}"></script>
+  <script src="{% static 'js/particle.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+   
+
+
+
+
+	
+
+</body>
+</html>

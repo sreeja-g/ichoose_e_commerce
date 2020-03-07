@@ -7,18 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>IChoose Shop - Home</title>
 	<link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
-  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
-	<link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
-  <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
-  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
-  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-nice-select@1.1.0/css/nice-select.css">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
   <!--================ Start Header Menu Area =================-->
-	<header class="header_area">
+	<header class="header_area" style="height: 82px;padding: 20px">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -30,13 +30,13 @@
             <span class="icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent" >
-            <ul class="nav navbar-nav menu_nav ml-auto mr-auto" >
+            <ul class="nav navbar-nav menu_nav ml-auto mr-auto" style="position: absolute;right: 780px;" >
               <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
 
-            <ul class="nav-shop">
+            <ul class="nav-shop" style="position: absolute;right: 50px;padding: 10px">
               <li class="nav-item">
 
                 <div class="md-form active-cyan-2 mb-3">
@@ -45,9 +45,10 @@
 
 
               </li><li class="nav-item">
-                  <button><i class="ti-search"></i></button></li>
-              <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-              <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+                  <button><i class="fa fa-search" aria-hidden="true"></i></button></li>
+              <!--<li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>-->
+                <li class="nav-item"><a class="button button-header" href="{% url 'registration:login' %}"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Sign in</a></li>
+                <li class="nav-item"><a class="button button-header" href="{% url 'registration:signup' %}"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Sign up</a></li>
             </ul>
           </div>
         </div>
@@ -57,7 +58,7 @@
 	<!--================ End Header Menu Area =================-->
 
   <main class="site-main">
-    
+
     <!--================ Hero banner start =================-->
     <section class="hero-banner">
       <div class="container">
@@ -72,7 +73,7 @@
               <h4>Shop is fun</h4>
               <h1>Browse Our Premium Product</h1>
               <p>Us which over of signs divide dominion deep fill bring they're meat beho upon own earth without morning over third. Their male dry. They are great appear whose land fly grass.</p>
-              <a class="button button-hero" href="#">Browse Now</a>
+              <a class="button button-hero" href="{% url 'registration:signup' %}">Browse Now</a>
             </div>
           </div>
         </div>
@@ -81,35 +82,36 @@
     <!--================ Hero banner start =================-->
 
     <!--================ Hero Carousel start =================-->
-    <section class="section-margin mt-0">
+      <div class="about" id="about" style="padding-top: 100px;text-align: center;font-size: 50px;font-family:Sans-Serif;padding-bottom: 50px;color: black;scroll-behavior: smooth;">About</div>
+    <section class="section-margin mt-0" style="margin-left: 100px;margin-right: 100px">
       <div class="owl-carousel owl-theme hero-carousel">
-        <div class="hero-carousel__slide">
-          <img src="{% static 'img/home/hero-slide1.png' %}" alt="" class="img-fluid">
+        <div class="hero-carousel__slide" >
+          <img src="https://inkhive.com/wp-content/uploads/2018/04/seller.png" style="height: 400px" alt="" class="img-fluid">
           <a href="#" class="hero-carousel__slideOverlay">
-            <h3>Wireless Headphone</h3>
-            <p>Accessories Item</p>
+            <h3>Seller</h3>
+            <p>The one who make things</p>
           </a>
         </div>
         <div class="hero-carousel__slide">
-          <img src="{% static 'img/home/hero-slide2.png' %}" alt="" class="img-fluid">
+          <img src="https://lh3.googleusercontent.com/proxy/uWRkLTCDnzfW9m448q-61ccY_lGnatHUKgIDLOfB8Iw-XsOPR4n-J7bcUHHrWr5WLQ0gLMZLEBVQSy1qa65eTKnS2hAQQV1p4L48EOpBKzY7-EaxZHz0zWlG" style="height: 400px;" alt="" class="img-fluid">
           <a href="#" class="hero-carousel__slideOverlay">
-            <h3>Wireless Headphone</h3>
-            <p>Accessories Item</p>
+            <h3>Buyer</h3>
+            <p>The one who buy items from seller</p>
           </a>
         </div>
         <div class="hero-carousel__slide">
-          <img src="{% static 'img/home/hero-slide3.png' %}" alt="" class="img-fluid">
+          <img src="https://miro.medium.com/max/2400/1*eModbI74UkbaBPdAfW1hOw.jpeg" style="height: 400px" alt="" class="img-fluid">
           <a href="#" class="hero-carousel__slideOverlay">
-            <h3>Wireless Headphone</h3>
-            <p>Accessories Item</p>
+            <h3>Loan Provider</h3>
+            <p>The one who gives loans to seller</p>
           </a>
         </div>
       </div>
     </section>
     <!--================ Hero Carousel end =================-->
 
-    <!-- ================ trending product section start ================= -->  
-    <section class="section-margin calc-60px">
+    <!-- ================ trending product section start ================= -->
+    <section class="section-margin calc-60px" id="product">
       <div class="container">
         <div class="section-intro pb-60px">
           <p>Popular Item in the market</p>
@@ -119,38 +121,7 @@
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="{% static 'img/product/product1.png' %}" alt="">
-                <div class="prd-bottom">
-
-										<a href="" class="social-info">
-											<span class="ti-bag"></span>
-											<p class="hover-text">add to bag</p>
-										</a>
-										<a href="" class="social-info">
-											<span class="lnr lnr-heart"></span>
-											<p class="hover-text">Wishlist</p>
-										</a>
-										<a href="" class="social-info">
-											<span class="lnr lnr-sync"></span>
-											<p class="hover-text">compare</p>
-										</a>
-										<a href="" class="social-info">
-											<span class="lnr lnr-move"></span>
-											<p class="hover-text">view more</p>
-										</a>
-									</div>
-              </div>
-              <div class="card-body">
-                <p>Accessories</p>
-                <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="{% static 'img/product/product2.png' %}" alt="">
+                <img class="card-img" src="https://img.crocdn.co.uk/images/products2/pr/00/00/20/13/pr0000201397.jpg?width=940&height=940" style="height: 270px" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -159,7 +130,7 @@
               </div>
               <div class="card-body">
                 <p>Beauty</p>
-                <h4 class="card-product__title"><a href="single-product.html">Women Freshwash</a></h4>
+                <h4 class="card-product__title"><a href="#">Quartz Belt Watch</a></h4>
                 <p class="card-product__price">$150.00</p>
               </div>
             </div>
@@ -167,7 +138,24 @@
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="{% static 'img/product/product3.png' %}" alt="">
+                <img class="card-img" src="https://apollo-singapore.akamaized.net/v1/files/03os2meqcajv-PK/image" style="height: 270px" alt="">
+                <ul class="card-product__imgOverlay">
+                  <li><button><i class="ti-search"></i></button></li>
+                  <li><button><i class="ti-shopping-cart"></i></button></li>
+                  <li><button><i class="ti-heart"></i></button></li>
+                </ul>
+              </div>
+              <div class="card-body">
+                <p>Beauty</p>
+                <h4 class="card-product__title"><a href="#">Women Freshwash</a></h4>
+                <p class="card-product__price">$150.00</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center card-product">
+              <div class="card-product__img">
+                <img class="card-img" src="https://images-na.ssl-images-amazon.com/images/I/71%2BjXaSB3qL._SL1500_.jpg" style="height: 270px" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -176,7 +164,7 @@
               </div>
               <div class="card-body">
                 <p>Decor</p>
-                <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
+                <h4 class="card-product__title"><a href="#">Room Flash Light</a></h4>
                 <p class="card-product__price">$150.00</p>
               </div>
             </div>
@@ -184,7 +172,7 @@
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="{% static 'img/product/product4.png' %}" alt="">
+                <img class="card-img" style="height: 270px" src="https://ae01.alicdn.com/kf/HTB1_6vkXirxK1RkHFCcq6AQCVXaC/Ethnic-Dreamcatcher-Handmade-Feathers-Hanging-Pendant-Pink-Dream-Catcher-Home-Wall-Art-Hangings-Decorations-Gift-DropShip.jpg" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -193,7 +181,7 @@
               </div>
               <div class="card-body">
                 <p>Decor</p>
-                <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
+                <h4 class="card-product__title"><a href="#">Room Flash Light</a></h4>
                 <p class="card-product__price">$150.00</p>
               </div>
             </div>
@@ -210,7 +198,7 @@
               </div>
               <div class="card-body">
                 <p>Accessories</p>
-                <h4 class="card-product__title"><a href="single-product.html">Man Office Bag</a></h4>
+                <h4 class="card-product__title"><a href="#">Man Office Bag</a></h4>
                 <p class="card-product__price">$150.00</p>
               </div>
             </div>
@@ -218,7 +206,7 @@
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="{% static 'img/product/product6.png' %}" alt="">
+                <img class="card-img" style="height: 270px" src="https://i1.wp.com/aprettyfix.com/wp-content/uploads/8-Pot-n-Display-min.png?resize=700%2C467&ssl=1" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -227,7 +215,7 @@
               </div>
               <div class="card-body">
                 <p>Kids Toy</p>
-                <h4 class="card-product__title"><a href="single-product.html">Charging Car</a></h4>
+                <h4 class="card-product__title"><a href="#">Charging Car</a></h4>
                 <p class="card-product__price">$150.00</p>
               </div>
             </div>
@@ -235,7 +223,7 @@
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="{% static 'img/product/product7.png' %}" alt="">
+                <img class="card-img" style="height: 270px;" src="https://vangogh.teespring.com/v3/image/4bEG-imxdp_0yx2JBWVOZOGUagg/480/560.jpg" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -244,15 +232,15 @@
               </div>
               <div class="card-body">
                 <p>Accessories</p>
-                <h4 class="card-product__title"><a href="single-product.html">Blutooth Speaker</a></h4>
+                <h4 class="card-product__title"><a href="#">Blutooth Speaker</a></h4>
                 <p class="card-product__price">$150.00</p>
-              </div> 
+              </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="{% static 'img/product/product8.png' %}" alt="">
+                <img class="card-img" style="height: 270px;" src="https://static-01.daraz.pk/p/10bc95d8fb99f9fe8791097dd6e5f58b.jpg" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><button><i class="ti-search"></i></button></li>
                   <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -269,167 +257,29 @@
         </div>
       </div>
     </section>
-    <!-- ================ trending product section end ================= -->  
+    <!-- ================ trending product section end ================= -->
 
 
-    <!-- ================ offer section start ================= --> 
+    <!-- ================ offer section start ================= -->
     <section class="offer" id="parallax-1" data-anchor-target="#parallax-1" data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
       <div class="container">
         <div class="row">
           <div class="col-xl-5">
             <div class="offer__content text-center">
-              <h3>Up To 50% Off</h3>
-              <h4>Winter Sale</h4>
-              <p>Him she'd let them sixth saw light</p>
-              <a class="button button--active mt-3 mt-xl-4" href="#">Shop Now</a>
+              <h3>E-Commerce Website</h3>
+              <h4>Wide range of products</h4>
+              <p>Fully customized products</p>
+              <a class="button button--active mt-3 mt-xl-4" href="{% url 'registration:signup' %}">Shop Now</a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- ================ offer section end ================= --> 
+    <!-- ================ offer section end ================= -->
 
-    <!-- ================ Best Selling item  carousel ================= --> 
-    <section class="section-margin calc-60px">
-      <div class="container">
-        <div class="section-intro pb-60px">
-          <p>Popular Item in the market</p>
-          <h2>Best <span class="section-intro__style">Sellers</span></h2>
-        </div>
-        <div class="owl-carousel owl-theme" id="bestSellerCarousel">
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product1.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Accessories</p>
-              <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
 
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product2.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Beauty</p>
-              <h4 class="card-product__title"><a href="single-product.html">Women Freshwash</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
 
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product3.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product4.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product1.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Accessories</p>
-              <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product2.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Beauty</p>
-              <h4 class="card-product__title"><a href="single-product.html">Women Freshwash</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product3.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img class="img-fluid" src="{% static 'img/product/product4.png' %}" alt="">
-              <ul class="card-product__imgOverlay">
-                <li><button><i class="ti-search"></i></button></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Decor</p>
-              <h4 class="card-product__title"><a href="single-product.html">Room Flash Light</a></h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ================ Best Selling item  carousel end ================= --> 
-
-    <!-- ================ Blog section start ================= -->  
+    <!-- ================ Blog section start ================= -->
     <section class="blog">
       <div class="container">
         <div class="section-intro pb-60px">
@@ -491,14 +341,14 @@
         </div>
       </div>
     </section>
-    <!-- ================ Blog section end ================= -->  
+    <!-- ================ Blog section end ================= -->
 
-    <!-- ================ Subscribe section start ================= --> 
+    <!-- ================ Subscribe section start ================= -->
     <section class="subscribe-position">
       <div class="container">
         <div class="subscribe text-center">
           <h3 class="subscribe__title">Get Update From Anywhere</h3>
-          <p>Bearing Void gathering light light his eavening unto dont afraid</p>
+          <p>Bearing Void gathering light his eavening unto dont afraid</p>
           <div id="mc_embed_signup">
             <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe-form form-inline mt-5 pt-1">
               <div class="form-group ml-sm-auto">
@@ -512,19 +362,19 @@
 
             </form>
           </div>
-          
+
         </div>
       </div>
     </section>
-    <!-- ================ Subscribe section end ================= --> 
+    <!-- ================ Subscribe section end ================= -->
 
-    
+
 
   </main>
 
 
-  <!--================ Start footer Area  =================-->	
-	<footer class="footer">
+  <!--================ Start footer Area  =================-->
+	<footer class="footer" id="contact">
 		<div class="footer-area">
 			<div class="container">
 				<div class="row section_gap">
@@ -532,11 +382,11 @@
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title large_title">Our Mission</h4>
 							<p>
-								So seed seed green that winged cattle in. Gathering thing made fly you're no 
-								divided deep moved us lan Gathering thing us land years living.
+								Our aim to provide easy service for all the sellers,buyers and loan providers.
+								Gathering all the fully customized products
 							</p>
 							<p>
-								So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved 
+								The growth of online shopping has created a wealth of opportunities for con artists.
 							</p>
 						</div>
 					</div>
@@ -545,40 +395,41 @@
 							<h4 class="footer_title">Quick Links</h4>
 							<ul class="list">
 								<li><a href="#">Home</a></li>
-								<li><a href="#">Shop</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Product</a></li>
-								<li><a href="#">Brand</a></li>
-								<li><a href="#">Contact</a></li>
+								<li><a href="#about">About</a></li>
+								<li><a href="#product">Products</a></li>
+								<li><a href="#contact">Contact</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget instafeed">
-							<h4 class="footer_title">Gallery</h4>
+							<h4 class="footer_title">Contact</h4>
 							<ul class="list instafeed d-flex flex-wrap">
-								<li><img src="{% static 'img/gallery/r1.jpg' %}" alt=""></li>
-								<li><img src="{% static 'img/gallery/r2.jpg' %}" alt=""></li>
-								<li><img src="{% static 'img/gallery/r3.jpg' %}" alt=""></li>
-								<li><img src="{% static 'img/gallery/r5.jpg' %}" alt=""></li>
-								<li><img src="{% static 'img/gallery/r7.jpg' %}" alt=""></li>
-								<li><img src="{% static 'img/gallery/r8.jpg' %}" alt=""></li>
+                                <li>Location:</li>
+                                <li>IIIT Sri City,Chittoor</li>
+                                <li>Phone:</li>
+                                <li>0987654321</li>
+                                <li>Email:</li>
+                                <li>iiits@gmail.com</li>
 							</ul>
 						</div>
 					</div>
-					
+                </div>
+            </div>
+        </div>
+
 	</footer>
 	<!--================ End footer Area  =================-->
 
 
 
-  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
-  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'vendors/skrollr.min.js' %}"></script>
-  <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'vendors/nice-select/jquery.nice-select.min.js' %}"></script>
-  <script src="{% static 'vendors/jquery.ajaxchimp.min.js' %}"></script>
-  <script src="{% static 'vendors/mail-script.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxchimp/1.3.0/jquery.ajaxchimp.min.js"></script>
+
   <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

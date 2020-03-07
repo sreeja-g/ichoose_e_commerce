@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ichoose.apps.IchooseConfig',
     'registration.apps.RegistrationConfig',
     'social_django',
+    'isell.apps.IsellConfig'
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -49,6 +50,14 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1098294132267-7igddfho82ldmf271rr2duc4tom277q6.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'mZ89eXlN5wTfBqqiw4ozNNL7'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '184350956171545'
+SOCIAL_AUTH_FACEBOOK_SECRET = '4f187d2c1b927ac0b7d8ceeb2da79793'
+
+SOCIAL_AUTH_TWITTER_KEY = 'yzSJx9h2b9t93h9kKBqa4zDsG'
+SOCIAL_AUTH_TWITTER_SECRET = 'N5ttuX7jPgclPwEuYhgf8EHAJTpzaz7JTn4vGl8yLkVBnCg02u'
 
 LOGIN_URL = '/auth/login/google-oauth2/'
 
@@ -151,3 +160,6 @@ EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_HOST_USER = 'aselib123@gmail.com'
 EMAIL_HOST_PASSWORD = 'Project@12'
 EMAIL_PORT = 587
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'

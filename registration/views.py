@@ -7,11 +7,9 @@ from .tokens import account_activation_token
 from django.utils.encoding import force_bytes,force_text
 from django.core.mail import EmailMessage
 import requests
-#from rest_framework.authtoken.models import Token
 from .forms import UserForm
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import User
-
 
 def index(request):
     return render(request, 'index.html')
@@ -45,7 +43,7 @@ def user_login(request):
                 if user is not None:
                     if user.is_active:
                         auth_login(request, user)
-                        return render(request, 'home.html')
+                        return redirect("http://127.0.0.1:8000/home")
                     else:
                         messages.error(request,
                                        'Your account is inactive. Please verify you account by clicking the link sent to your email.')
@@ -161,8 +159,84 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        auth_login(request,user)
+        auth_login(request,user,backend='django.contrib.auth.backends.ModelBackend')
         return render(request, 'home.html')
     else:
         messages.error(request,'Activation link is invalid!')
-        return render(request, 'index.html')
+        return render(request, 'signup.html')
+
+
+
+def forgot_password(request):
+
+    if request.method == 'POST':
+        storage = messages.get_messages(request)
+        storage.used = True
+
+        email = request.POST.get('email')
+        try:
+            user = User.objects.get(email=email)
+        except:
+            user = None
+
+        if user is None:
+            messages.error(request, 'Email doesnot exist')
+            return render(request, 'forgetpass.html')
+        else:
+            response = requests.get(
+                "http://api.quickemailverification.com/v1/verify?email=" + email + "&apikey=15aef1e3ebf4f0e3357b6aab94bb77833e639fc261b2d32903e1895bd330")
+            result = response.json()
+
+            if (result['did_you_mean'] == '' and result['result'] == "valid"):
+
+                current_site = get_current_site(request)
+                message = render_to_string('reset_password_email.html', {
+                    'user': user,
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': account_activation_token.make_token(user),
+                })
+
+                mail_subject = 'Password reset of your IChoose account.'
+                email = EmailMessage(mail_subject, message, to=[email])
+                try:
+                    email.send()
+                    return render(request, 'emailsent2.html')
+                except:
+                    messages.error(request, 'Server problem please ask to reset again')
+                    return render(request, 'forgetpass.html')
+
+            else:
+                messages.error(request, 'Email invalid')
+                return render(request, 'forgetpass.html')
+
+    else:
+        storage = messages.get_messages(request)
+        storage.used = True
+        return render(request, 'forgetpass.html')
+
+
+
+def reset_password_url_verification(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and account_activation_token.check_token(user, token):
+        auth_login(request, user,backend='django.contrib.auth.backends.ModelBackend')
+        return redirect('http://127.0.0.1:8000/reset_password')
+    else:
+        messages.error(request,'Activation link is invalid!')
+        return redirect('http://127.0.0.1:8000/signup')
+
+def reset_password(request):
+
+    if request.method == 'POST':
+        user=request.user
+        user.set_password(request.POST.get('password'))
+        user.save()
+        auth_login(request, user,backend='django.contrib.auth.backends.ModelBackend')
+        return redirect('http://127.0.0.1:8000/home')
+    else:
+        return render(request, 'reset.html')
